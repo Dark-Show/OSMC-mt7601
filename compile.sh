@@ -24,17 +24,22 @@ sudo apt-get install -y "${mypi}-headers-$(uname -r)"
 ## Install Linux Source
 
 sudo apt-get install -y "${mypi}-source-$(uname -r)"
-cd /usr/src
-sudo tar -jxvf ${mypi}-source-$(uname -r).tar.bz2
+
+if [ ! -d "/usr/src/${mypi}-source-$(uname -r)" ]; then
+
+    cd /usr/src
+    sudo tar -jxvf ${mypi}-source-$(uname -r).tar.bz2
 
 ## Setup Build Enviroment
 
-sudo cp ./${mypi}-headers-$(uname -r)/Module.symvers ./${mypi}-source-$(uname -r)/Module.symvers
-sudo rm /lib/modules/$(uname -r)/build
-sudo ln -s ./${mypi}-source-$(uname -r) /lib/modules/$(uname -r)/build
-cd /lib/modules/$(uname -r)/build
-sudo make oldconfig
-sudo make modules_prepare
+    sudo cp ./${mypi}-headers-$(uname -r)/Module.symvers ./${mypi}-source-$(uname -r)/Module.symvers
+    sudo rm /lib/modules/$(uname -r)/build
+    sudo ln -s ./${mypi}-source-$(uname -r) /lib/modules/$(uname -r)/build
+    cd /lib/modules/$(uname -r)/build
+    sudo make oldconfig
+    sudo make modules_prepare
+
+fi
 
 ## Download & Compile Driver
 
