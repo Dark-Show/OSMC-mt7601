@@ -44,7 +44,7 @@ fi
 ## Download & Compile Driver
 
 cd ${old_dir}
-git clone https://github.com/porjo/mt7601
+git clone https://github.com/Dark-Show/mt7601
 cd ./mt7601/src
 sudo make
 cd ./../..
