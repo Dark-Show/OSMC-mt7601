@@ -32,7 +32,7 @@ if [ ! -d "/usr/src/${mypi}-source-$(uname -r)" ]; then
 
 ## Setup Build Enviroment
 
-    sudo cp /usr/src/${mypi}-headers-$(uname -r)/Module.symvers ./${mypi}-source-$(uname -r)/Module.symvers
+    sudo cp /usr/src/${mypi}-headers-$(uname -r)/Module.symvers /usr/src/${mypi}-source-$(uname -r)/Module.symvers
     sudo rm /lib/modules/$(uname -r)/build
     sudo ln -s /usr/src/${mypi}-source-$(uname -r) /lib/modules/$(uname -r)/build
     cd /lib/modules/$(uname -r)/build
