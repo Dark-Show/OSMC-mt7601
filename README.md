@@ -1,3 +1,6 @@
+#DEPRICATED
+Included in OSMC.
+
 # OSMC-mt7601
 Scripts to compile/install/uninstall the mt7601 wifi kernel module in OSMC
 
